@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import NFLLogos from './NFLLogos.jsx';
-import './Cards.css';
+import styles from './Cards.module.css';
 
-function Cards({ score, setScore }) {
+function Cards({ score, setScore, highScore, setHighScore, numCards }) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -16,22 +16,22 @@ function Cards({ score, setScore }) {
       };
       cards.push(card);
     });
-    setCards(randomizeArr(cards));
-  }, []);
+    const subset = getRandomSubset(cards, numCards);
+    setCards(subset);
+  }, [numCards]);
 
   function randomizeCards() {
     setCards(randomizeArr([...cards]));
   }
 
   function handleClick(id) {
-    console.log(id);
     let card = cards.find((card) => card.id === id);
-    console.log(card.selected);
     if (card.selected) {
       gameOver();
     } else {
       let newScore = score + 1;
       setScore(newScore);
+      setHighScore(Math.max(highScore, newScore));
       card.selected = true;
       if (newScore === cards.length) {
         gameOver();
@@ -49,13 +49,13 @@ function Cards({ score, setScore }) {
   }
 
   return (
-    <div className="cards">
+    <div className={styles.cards}>
       {cards.map((card) => {
         return (
           <div
             key={card.id}
             onClick={() => handleClick(card.id)}
-            className="card"
+            className={styles.card}
           >
             {card.logo}
           </div>
@@ -65,6 +65,10 @@ function Cards({ score, setScore }) {
   );
 }
 
+function getRandomSubset(arr, n) {
+  randomizeArr(arr);
+  return arr.slice(0, n);
+}
 function randomizeArr(arr) {
   for (let i = 0; i < arr.length; ++i) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -76,6 +80,9 @@ function randomizeArr(arr) {
 Cards.propTypes = {
   score: PropTypes.number,
   setScore: PropTypes.func,
+  highScore: PropTypes.number,
+  setHighScore: PropTypes.func,
+  numCards: PropTypes.number,
 };
 
 export default Cards;

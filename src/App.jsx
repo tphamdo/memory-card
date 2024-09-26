@@ -1,16 +1,23 @@
 import { useState } from 'react';
-import Cards from './Cards.jsx';
-import Score from './Score.jsx';
+import HomeScreen from './HomeScreen.jsx';
+import CardScreen from './CardScreen.jsx';
 import './App.css';
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [difficulty, setDifficulty] = useState(null);
+  const [homeScreen, setHomeScreen] = useState(true);
 
-  console.log(score);
   return (
     <>
-      <Cards score={score} setScore={setScore} />
-      <Score score={score} />
+      {homeScreen && (
+        <HomeScreen
+          setDifficulty={setDifficulty}
+          setHomeScreen={setHomeScreen}
+        />
+      )}
+      {!homeScreen && (
+        <CardScreen difficulty={difficulty} setHomeScreen={setHomeScreen} />
+      )}
     </>
   );
 }
