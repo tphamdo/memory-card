@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Cards from './Cards.jsx';
+import Score from './Score.jsx';
 import './App.css';
 
 function App() {
@@ -7,9 +8,10 @@ function App() {
 
   console.log(score);
   return (
-    <div className="cards">
+    <>
       <Cards score={score} setScore={setScore} />
-    </div>
+      <Score score={score} />
+    </>
   );
 }
 

@@ -49,7 +49,7 @@ function Cards({ score, setScore }) {
   }
 
   return (
-    <>
+    <div className="cards">
       {cards.map((card) => {
         return (
           <div
@@ -61,7 +61,7 @@ function Cards({ score, setScore }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
