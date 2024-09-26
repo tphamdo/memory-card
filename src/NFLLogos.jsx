@@ -1,0 +1,38 @@
+import * as NFL from 'react-nfl-logos';
+
+const NFLLogos = [
+  <NFL.ARI key="ari" size={175} />,
+  <NFL.ATL key="atl" size={175} />,
+  <NFL.BAL key="bal" size={175} />,
+  <NFL.BUF key="buf" size={175} />,
+  <NFL.CAR key="car" size={175} />,
+  <NFL.CHI key="chi" size={175} />,
+  <NFL.CIN key="cin" size={175} />,
+  <NFL.CLE key="cle" size={175} />,
+  <NFL.DAL key="dal" size={175} />,
+  <NFL.DEN key="den" size={175} />,
+  <NFL.DET key="det" size={175} />,
+  <NFL.GB key="gb" size={175} />,
+  <NFL.HOU key="hou" size={175} />,
+  <NFL.IND key="ind" size={175} />,
+  <NFL.JAX key="jax" size={175} />,
+  <NFL.KC key="kc" size={175} />,
+  <NFL.LAC key="lac" size={175} />,
+  <NFL.LAR key="lar" size={175} />,
+  <NFL.LV key="lv" size={175} />,
+  <NFL.MIA key="mia" size={175} />,
+  <NFL.MIN key="min" size={175} />,
+  <NFL.NE key="ne" size={175} />,
+  <NFL.NO key="no" size={175} />,
+  <NFL.NYG key="nyg" size={175} />,
+  <NFL.NYJ key="nyj" size={175} />,
+  <NFL.PHI key="phi" size={175} />,
+  <NFL.PIT key="pit" size={175} />,
+  <NFL.SEA key="sea" size={175} />,
+  <NFL.SF key="sf" size={175} />,
+  <NFL.TB key="tb" size={175} />,
+  <NFL.TEN key="ten" size={175} />,
+  <NFL.WAS key="was" size={175} />,
+];
+
+export default NFLLogos;
